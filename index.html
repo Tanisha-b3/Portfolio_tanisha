@@ -175,7 +175,7 @@
               <span><i class="fas fa-tags"></i> MERN</span>
             </div>
             <div class="card-actions">
-              <a href="https://event-pro-ohf3.vercel.app/login" class="view-btn">View Project</a>
+              <a href="https://event-pro-ohf3.vercel.app" class="view-btn">View Project</a>
               <!-- <a href="#" class="case-study-btn">Case Study</a> -->
             </div>
           </div>
@@ -233,44 +233,55 @@
 
 
   <!-- Contact Section -->
-  <section class="contact" id="contact">
-      <div class="contact-left animate__animated animate__fadeInLeft">
-        <h2>Got a project in <span>mind?</span></h2>
-        <p>Let's create something amazing together. Reach out and I'll get back to you within 24 hours.</p>
-        <div class="contact-info mt-6">
-          <div class="info-item flex items-center mb-4">
-            <div class="info-icon mr-3">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <span>tanishaborana05@gmail.com</span>
-          </div>
-          <div class="info-item flex items-center mb-4">
-            <div class="info-icon mr-3">
-              <i class="fas fa-phone"></i>
-            </div>
-            <span>+91 74890XXXX<span>
-          </div>
+ <!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="contact-left animate__animated animate__fadeInLeft">
+    <h2>Got a project in <span>mind?</span></h2>
+    <p>Let's create something amazing together. Reach out and I'll get back to you within 24 hours.</p>
+    <div class="contact-info mt-6">
+      <div class="info-item flex items-center mb-4">
+        <div class="info-icon mr-3">
+          <i class="fas fa-envelope"></i>
         </div>
-        <img src="/hero.jpg" alt="Project" />
+        <span>tanishaborana05@gmail.com</span>
       </div>
-      <form class="contact-form animate__animated animate__fadeInRight">
-        <div class="form-group">
-          <label for="name">Your name</label>
-          <input type="text" id="name" placeholder="Enter your name" required />
+      <div class="info-item flex items-center mb-4">
+        <div class="info-icon mr-3">
+          <i class="fas fa-phone"></i>
         </div>
-        <div class="form-group">
-          <label for="email">Your email</label>
-          <input type="email" id="email" placeholder="Enter your email" required />
-        </div>
-        <div class="form-group">
-          <label for="message">Your message</label>
-          <textarea id="message" placeholder="Tell me about your project" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="submit-btn">
-          <span>Send Message</span>
-        </button>
-      </form>
-  </section>
+        <span>+91 74890XXXX<span>
+      </div>
+    </div>
+    <img src="/hero.jpg" alt="Project" />
+  </div>
+  
+  <!-- Updated Form with Formspree -->
+  <form 
+    class="contact-form animate__animated animate__fadeInRight"
+    id="contactForm"
+    action="https://formspree.io/f/xzzvreyk"
+    method="POST"
+  >
+    <div class="form-group">
+      <label for="name">Your name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required />
+    </div>
+    <div class="form-group">
+      <label for="email">Your email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+    </div>
+    <div class="form-group">
+      <label for="message">Your message</label>
+      <textarea id="message" name="message" placeholder="Tell me about your project" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">
+      <span>Send Message</span>
+    </button>
+  </form>
+  
+  <!-- Form status message -->
+  <div id="form-message" class="hidden mt-4"></div>
+</section>
 
   <!-- Footer -->
   <footer class="animate__animated animate__fadeInUp">
@@ -300,111 +311,6 @@
 
   <!-- Add this for scroll animations -->
   <script src="https://unpkg.com/scrollreveal"></script>
-  <script>
-    // Initialize ScrollReveal
-    ScrollReveal().reveal('.hero-content, .hero-image, .about-text, .about-image, .portfolio h2, .portfolio-filters, .portfolio-card, .contact-left, .contact-form, footer', {
-      delay: 200,
-      distance: '20px',
-      origin: 'bottom',
-      opacity: 0,
-      interval: 100,
-      easing: 'ease-in-out',
-      reset: true
-    });
-
-    // Active filter buttons
-    const filterButtons = document.querySelectorAll('.portfolio-filters button');
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-      });
-    });
-
-    // Mobile menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburger.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
-      });
-    });
-
-    // Sticky navbar on scroll
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      navbar.classList.toggle('sticky', window.scrollY > 0);
-    });
-
-    // Active nav link based on scroll position
-    const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 300) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-    // Portfolio Filtering
-document.addEventListener('DOMContentLoaded', function() {
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const portfolioCards = document.querySelectorAll('.portfolio-card');
-  const searchInput = document.querySelector('.search-input');
-  
-  // Filter by category
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Update active button
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      
-      const filterValue = button.dataset.filter;
-      
-      // Filter cards
-      portfolioCards.forEach(card => {
-        if (filterValue === 'all' || card.dataset.category.includes(filterValue)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-  
-  // Search functionality
-  searchInput.addEventListener('input', () => {
-    const searchTerm = searchInput.value.toLowerCase();
-    
-    portfolioCards.forEach(card => {
-      const title = card.querySelector('h3').textContent.toLowerCase();
-      const description = card.querySelector('p').textContent.toLowerCase();
-      
-      if (title.includes(searchTerm) || description.includes(searchTerm)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  });
-});
-  </script>
+  <script src ="script.js"></script>
 </body>
 </html>
