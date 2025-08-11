@@ -187,7 +187,49 @@ a:hover {
 #form-message.text-red-500 {
   color: #EF4444;
 }
+/* Typography Enhancements */
+:root {
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
 
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.75rem;
+}
+
+/* Color Enhancements */
+:root {
+  --primary: #00d1d1;
+  --primary-light: #6bffff;
+  --primary-dark: #009999;
+  --accent: #ff6b6b;
+}
+
+/* Animation Timing */
+.animate__animated {
+  --animate-duration: 0.6s;
+}
+
+/* Portfolio Filter Functionality */
+.filter-btn.active {
+  background: var(--primary);
+  color: var(--dark);
+  font-weight: 600;
+}
+
+[data-category] {
+  transition: all 0.4s ease;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
 /* Loading state for button */
 .submit-btn[disabled] {
   opacity: 0.7;
@@ -1106,4 +1148,386 @@ footer .socials {
 footer p {
   margin-top: 10px;
   font-size: 0.85rem;
+}
+/* Mobile-First Responsive CSS */
+
+/* Base Styles */
+:root {
+  --primary: #00d1d1;
+  --primary-dark: #00b3b3;
+  --secondary: #444;
+  --dark: #0d1b2a;
+  --dark-light: #1b263b;
+  --darker-light: #1e2d44;
+  --gray-light: rgba(156, 163, 175);
+  --gray-dark: rgba(107, 114, 128);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--dark);
+  color: #fff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Mobile Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: rgba(13, 27, 42, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s var(--ease-in-out);
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+.nav-links {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  height: 100vh;
+  background-color: var(--dark-light);
+  padding: 2rem;
+  transition: right 0.3s var(--ease-in-out);
+}
+
+/* Image Styles */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Hero Image */
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 209, 209, 0.2);
+}
+
+/* About Image */
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto 0;
+}
+
+/* Portfolio Images */
+.card-image img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* Contact Image */
+.contact-left img {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+
+  .hero-image img,
+  .about-image img,
+  .contact-left img {
+    max-width: 100px;
+    /* max-height: 400px; */
+  }
+  
+  .card-image img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image img,
+  .about-image img,
+  .contact-left img {
+    max-width: 280px;
+  }
+  
+  .card-image img {
+    height: 180px;
+  }
+}
+
+.nav-links.active {
+  right: 0;
+  display: flex;
+}
+
+.hamburger {
+  display: block;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Sections */
+section {
+  padding: 80px 1rem;
+  min-height: auto;
+}
+
+/* Hero Section */
+.hero {
+  padding-top: 100px;
+  flex-direction: column;
+}
+
+.hero-content, 
+.hero-image {
+  width: 100%;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 2rem;
+}
+
+.hero-buttons {
+  justify-content: center;
+}
+
+/* About Section */
+.about {
+  flex-direction: column;
+}
+
+.about-text,
+.about-image {
+  width: 100%;
+}
+
+.about-image img {
+  margin-top: 2rem;
+}
+
+/* Portfolio Section */
+.portfolio {
+  padding: 2rem 1rem;
+}
+
+.portfolio-controls {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.portfolio-filters {
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.portfolio-search {
+  width: 100%;
+  margin-right: 0;
+}
+
+.portfolio-items {
+  grid-template-columns: 1fr;
+}
+
+/* Contact Section */
+.contact {
+  flex-direction: column;
+  padding: 2rem 1rem;
+}
+
+.contact-left,
+.contact-form {
+  width: 100%;
+}
+
+.contact-form {
+  margin-top: 2rem;
+  padding: 1.5rem;
+}
+
+/* Footer */
+footer {
+  padding: 2rem 1rem;
+}
+
+footer nav {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+  .navbar {
+    padding: 1.5rem 0;
+  }
+  
+  .nav-links {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    padding: 0;
+  }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  section {
+    padding: 100px 2rem;
+  }
+  
+  .hero {
+    flex-direction: row;
+    padding-top: 120px;
+  }
+  
+  .hero-content {
+    text-align: left;
+    width: 50%;
+  }
+  
+  .hero-image {
+    width: 50%;
+  }
+  
+  .about {
+    flex-direction: row-reverse;
+  }
+  
+  .portfolio-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contact {
+    flex-direction: row;
+  }
+  
+  .btn {
+    width: auto;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+  
+  section {
+    padding: 120px 2rem;
+  }
+  
+  .portfolio-items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+}
+
+/* Large Desktop Styles */
+@media (min-width: 1400px) {
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+}
+
+/* Animation Fixes for Mobile */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Form Improvements for Mobile */
+.form-control {
+  font-size: 16px; /* Prevent zoom on focus in iOS */
+}
+
+/* Button Tap Feedback */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Viewport Height Fix for Mobile */
+@media (max-height: 700px) {
+  section {
+    min-height: auto;
+    padding: 80px 1rem;
+  }
+}
+
+/* Portfolio Card Adjustments */
+.portfolio-card {
+  margin: 0.5rem;
+}
+
+.card-image {
+  height: 200px;
+}
+
+/* Skill Bars */
+.skill-item {
+  margin-bottom: 1rem;
+}
+
+/* Contact Info Alignment */
+.info-item {
+  align-items: flex-start;
+}
+
+/* Footer Links */
+footer nav a {
+  padding: 0.5rem;
 }

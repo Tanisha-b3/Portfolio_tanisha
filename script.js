@@ -140,5 +140,52 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+  // Enhanced portfolio filtering
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-card');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      const filterValue = button.getAttribute('data-filter');
+      
+      // Filter items
+      portfolioItems.forEach(item => {
+        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+          item.style.display = 'block';
+          item.classList.add('animate__fadeIn');
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+  
+  // Form submission handling
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Sending...</span>';
+      
+      // Simulate form submission
+      setTimeout(() => {
+        submitBtn.innerHTML = '<span>Message Sent!</span>';
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Send Message</span>';
+          contactForm.reset();
+        }, 2000);
+      }, 1500);
+    });
+  }
+});
 
 });

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Creative Frontend Developer</title>
   <link rel="stylesheet" href="style.css" />
   <!-- Add this for animations -->
@@ -22,9 +22,8 @@
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
         <button onclick="window.location.href='#contact';" class="btn primary nav-cta">
-  Hire Me
-</button>
-
+          Hire Me
+        </button>
       </div>
       
       <button class="hamburger" id="hamburger">
@@ -35,23 +34,24 @@
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <div class="container">
+    <!-- <div class="container"> -->
       <div class="hero-content animate__animated animate__fadeInLeft">
         <h1>Creative Frontend <span>Developer</span></h1>
         <p class="animate__animated animate__fadeIn animate__delay-1s">Crafting beautiful digital experiences with attention to detail</p>
         <div class="hero-buttons">
-          <a href ="#contact" class="btn primary j animate__animated animate__fadeInUp animate__delay-1s">
+          <a href="#contact" class="btn primary j animate__animated animate__fadeInUp animate__delay-1s">
             <span>Hire me</span>
-          </>
+          </a>
           <a href="/Tanishaborana_resume.pdf" download class="btn j secondary animate__animated animate__fadeInUp animate__delay-1s">
-  <span>Download CV</span>
-</a>
+            <span>Download CV</span>
+          </a>
         </div>
       </div>
       <div class="hero-image animate__animated animate__fadeInRight">
-        <img src="/hero2.jpg" style="width: 500px; height: 600px;" alt="Designer Illustration" />
+        <img src="/hero2.jpg" alt="Designer Illustration" width="500"
+             height="600"/>
       </div>
-    </div>
+    <!-- </div> -->
   </section>
 
   <!-- About Section -->
@@ -59,66 +59,60 @@
     <div class="container">
       <div class="about-text animate__animated animate__fadeInUp">
         <h2>About <span>me</span></h2>
-         <p>
-      Hi, I'm <strong>Tanisha Borana</strong>, a passionate Full Stack Developer specializing in
-      <strong>Java</strong> and <strong>MERN stack</strong> technologies. With hands-on experience
-      building scalable web applications like <em>Exploratrails</em> and <em>Platter Palooza</em>,
-      I thrive on transforming ideas into seamless digital experiences. I enjoy solving real-world
-      problems through clean code, intuitive UI, and smart backend logic.
-    </p>
-    <p>I’ve contributed to open-source
-      projects during Hacktoberfest, built AI-powered travel and food recommendation apps, and
-      continuously level up my skills through challenges like <strong>#CrackYourInternship</strong>.
-      I'm currently exploring cloud solutions, API integrations, and advanced Java concepts.
-    </p>
-    <p>Let’s build something amazing together!</p>
-        <!-- Skills progress bars - ShadCN style -->
-       
-        <div class="skills mt-6">
-          <div class="skill-item mb-4">
-            <div class="flex justify-between mb-1">
+        <p>
+          Hi, I'm <strong>Tanisha Borana</strong>, a passionate Full Stack Developer specializing in
+          <strong>Java</strong> and <strong>MERN stack</strong> technologies. With hands-on experience
+          building scalable web applications like <em>Exploratrails</em> and <em>Platter Palooza</em>,
+          I thrive on transforming ideas into seamless digital experiences.
+        </p>
+        <!-- Skills progress bars -->
+        <div class="skills">
+          <div class="skill-item">
+            <div class="skill-header">
               <span>Java</span>
               <span>90%</span>
             </div>
-            <div class="progress-bar bg-gray-700 rounded-full h-2">
-              <div class="progress-fill bg-accent h-2 rounded-full" style="width: 90%"></div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 90%"></div>
             </div>
           </div>
-          <div class="skill-item mb-4">
-            <div class="flex justify-between mb-1">
+          <div class="skill-item">
+            <div class="skill-header">
               <span>React</span>
               <span>90%</span>
             </div>
-            <div class="progress-bar bg-gray-700 rounded-full h-2">
-              <div class="progress-fill bg-accent h-2 rounded-full" style="width: 90%"></div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 90%"></div>
             </div>
           </div>
-          <div class="skill-item mb-4">
-            <div class="flex justify-between mb-1">
+          <div class="skill-item">
+            <div class="skill-header">
               <span>Node.Js</span>
               <span>90%</span>
             </div>
-            <div class="progress-bar bg-gray-700 rounded-full h-2">
-              <div class="progress-fill bg-accent h-2 rounded-full" style="width: 90%"></div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 90%"></div>
             </div>
-            </div>
-            <div class="skill-item mb-4">
-            <div class="flex justify-between mb-1">
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
               <span>MongoDb</span>
               <span>90%</span>
             </div>
-            <div class="progress-bar bg-gray-700 rounded-full h-2">
-              <div class="progress-fill bg-accent h-2 rounded-full" style="width: 90%"></div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 90%"></div>
             </div>
           </div>
         </div>
       </div>
       <div class="about-image animate__animated animate__fadeInRight">
-        <img src="/hero1.jpg" style="width:500px; height: 600px;;" alt="About Me" />
+        <img src="/hero1.jpg" alt="About Me" />
       </div>
     </div>
   </section>
-  <section class="portfolio" id="portfolio" style="flex-direction: row;">
+
+  <!-- Portfolio Section -->
+  <section class="portfolio" id="portfolio">
     <div class="section-header">
       <h2 class="animate__animated animate__fadeIn">My Recent <span>Works</span></h2>
       <p class="section-subtitle animate__animated animate__fadeIn animate__delay-1s">Explore my design projects across different categories</p>
@@ -154,7 +148,6 @@
             </div>
             <div class="card-actions">
               <a href="https://travelappproject.vercel.app" class="view-btn">View Project</a>
-              <!-- <a href="#" class="case-study-btn">Case Study</a> -->
             </div>
           </div>
         </div>
@@ -176,7 +169,6 @@
             </div>
             <div class="card-actions">
               <a href="https://event-pro-ohf3.vercel.app" class="view-btn">View Project</a>
-              <!-- <a href="#" class="case-study-btn">Case Study</a> -->
             </div>
           </div>
         </div>
@@ -198,12 +190,12 @@
             </div>
             <div class="card-actions">
               <a href="#" class="view-btn">View Project</a>
-              <!-- <a href="#" class="case-study-btn">Case Study</a> -->
             </div>
           </div>
         </div>
       </div>
-     <div class="portfolio-card animate__animated animate__fadeInUp animate__delay-1s" data-category="HTML">
+      
+      <div class="portfolio-card animate__animated animate__fadeInUp animate__delay-1s" data-category="HTML">
         <div class="card-image">
           <img src="\code.jpg" alt="Food"/>
           <div class="card-badge">HTML</div>
@@ -218,99 +210,84 @@
             </div>
             <div class="card-actions">
               <a href="https://competitive-tracking.vercel.app/" class="view-btn">View Project</a>
-              <!-- <a href="#" class="case-study-btn">Case Study</a> -->
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <div class="portfolio-footer animate__animated animate__fadeIn animate__delay-2s">
-      <button class="btn secondary load-more">Load More Projects</button>
-    </div> -->
-  </div>
-</section>
-
+  </section>
 
   <!-- Contact Section -->
- <!-- Contact Section -->
-<section class="contact" id="contact">
-  <div class="contact-left animate__animated animate__fadeInLeft">
-    <h2>Got a project in <span>mind?</span></h2>
-    <p>Let's create something amazing together. Reach out and I'll get back to you within 24 hours.</p>
-    <div class="contact-info mt-6">
-      <div class="info-item flex items-center mb-4">
-        <div class="info-icon mr-3">
-          <i class="fas fa-envelope"></i>
+  <section class="contact" id="contact">
+    <div class="contact-left animate__animated animate__fadeInLeft">
+      <h2>Got a project in <span>mind?</span></h2>
+      <p>Let's create something amazing together. Reach out and I'll get back to you within 24 hours.</p>
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <span>tanishaborana05@gmail.com</span>
         </div>
-        <span>tanishaborana05@gmail.com</span>
-      </div>
-      <div class="info-item flex items-center mb-4">
-        <div class="info-icon mr-3">
-          <i class="fas fa-phone"></i>
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <span>+91 74890XXXX</span>
         </div>
-        <span>+91 74890XXXX<span>
       </div>
+      <img src="/hero.jpg" alt="Project" />
     </div>
-    <img src="/hero.jpg" alt="Project" />
-  </div>
-  
-  <!-- Updated Form with Formspree -->
-  <form 
-    class="contact-form animate__animated animate__fadeInRight"
-    id="contactForm"
-    action="https://formspree.io/f/xzzvreyk"
-    method="POST"
-  >
-    <div class="form-group">
-      <label for="name">Your name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required />
-    </div>
-    <div class="form-group">
-      <label for="email">Your email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required />
-    </div>
-    <div class="form-group">
-      <label for="message">Your message</label>
-      <textarea id="message" name="message" placeholder="Tell me about your project" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="submit-btn">
-      <span>Send Message</span>
-    </button>
-  </form>
-  
-  <!-- Form status message -->
-  <div id="form-message" class="hidden mt-4"></div>
-</section>
+    
+    <form class="contact-form animate__animated animate__fadeInRight"
+      id="contactForm"
+      action="https://formspree.io/f/xzzvreyk"
+      method="POST">
+      <div class="form-group">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Your email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Your message</label>
+        <textarea id="message" name="message" placeholder="Tell me about your project" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">
+        <span>Send Message</span>
+      </button>
+    </form>
+  </section>
 
   <!-- Footer -->
   <footer class="animate__animated animate__fadeInUp">
-      <nav>
-        <a href="#home" class="hover:text-accent transition-colors">Home</a>
-        <a href="#about" class="hover:text-accent transition-colors">About me</a>
-        <a href="#portfolio" class="hover:text-accent transition-colors">Portfolio</a>
-        <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
-      </nav>
-      <div class="socials mt-6">
-        <a href="#" class="social-icon">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="social-icon">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="social-icon">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="social-icon">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
-      <p class="mt-6 text-sm text-gray-400">Terms of Service - Privacy Policy</p>
-      <p class="text-xs text-gray-500 mt-2">© 2023 Creative UI Designer. All rights reserved.</p>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About me</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="socials">
+      <a href="#" class="social-icon">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" class="social-icon">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" class="social-icon">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="social-icon">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <p class="footer-links">Terms of Service - Privacy Policy</p>
+    <p class="copyright">© 2023 Creative UI Designer. All rights reserved.</p>
   </footer>
 
-  <!-- Add this for scroll animations -->
   <script src="https://unpkg.com/scrollreveal"></script>
-  <script src ="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
