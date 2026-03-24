@@ -99,9 +99,9 @@ const projects = [
     description: 'Tracking platform for LeetCode and Codeforces users.',
     image: codeImg,
     category: 'Frontend',
-    tech: ['HTML', 'CSS', 'JavaScript'],
-    link: 'https://competitive-tracking.vercel.app/',
-    github: '#',
+    tech: ['TypeScript', 'React', 'Node.js'],
+    link: 'https://competitive-tracking-app.vercel.app/',
+    github: 'https://github.com/Tanisha-b3/Competitive_Tracking',
     date: 'Aug 2022',
   },
 ];
