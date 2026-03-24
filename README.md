@@ -16,7 +16,7 @@ A modern, responsive portfolio website featuring smooth animations, interactive 
 
 <br />
 
-[View Live](https://tanishaboarana.netlify.app) | [Report Bug](https://github.com/tanishaboarana/portfolio/issues) | [Request Feature](https://github.com/tanishaboarana/portfolio/issues)
+[View Live](https://portfolio-tanisha-3fm2.vercel.app/) 
 
 </div>
 
