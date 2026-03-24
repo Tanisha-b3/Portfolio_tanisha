@@ -1,6 +1,39 @@
+import { useState, useEffect } from 'react';
 import heroImg from '../assets/hero2.jpg';
 
+const roles = ['Full Stack', 'MERN Stack', 'Java', 'React'];
+
 const Hero = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+    const pauseTime = 2000;
+
+    if (!isDeleting && displayText === currentRole) {
+      const timeout = setTimeout(() => setIsDeleting(true), pauseTime);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && displayText === '') {
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setDisplayText((prev) =>
+        isDeleting
+          ? prev.slice(0, -1)
+          : currentRole.slice(0, prev.length + 1)
+      );
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, roleIndex]);
 
   return (
     <section
@@ -29,7 +62,8 @@ const Hero = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Creative
               <br />
-              <span className="gradient-text">Full Stack</span>
+              <span className="gradient-text">{displayText}</span>
+              <span className="typing-cursor" />
               <br />
               Developer
             </h1>
