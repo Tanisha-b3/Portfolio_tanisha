@@ -4,7 +4,7 @@
 
 ### Full Stack Developer Portfolio
 
-[![Live Demo](https://img.shields.io/badge/LIVE-DEMO-00d9ff?style=for-the-badge&logo=netlify&logoColor=white)](https://tanishaboarana.netlify.app)
+[![Live Demo](https://img.shields.io/badge/LIVE-DEMO-00d9ff?style=for-the-badge&logo=netlify&logoColor=white)](https://portfolio-tanisha-3fm2.vercel.app/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.2-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
@@ -187,9 +187,9 @@ frontend/
 
 <div align="center">
 
-[![Email](https://img.shields.io/badge/Email-tanishaborna24%40gmail.com-00d9ff?style=for-the-badge&logo=gmail&logoColor=white)](mailto:tanishaborna24@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Tanisha_Borana-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/tanisha-borana)
-[![GitHub](https://img.shields.io/badge/GitHub-tanishaboarana-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tanishaboarana)
+[![Email](https://img.shields.io/badge/Email-tanishaborna24%40gmail.com-00d9ff?style=for-the-badge&logo=gmail&logoColor=white)](mailto:tanishaborana05@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Tanisha_Borana-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tanisha-borana-552797233/)
+[![GitHub](https://img.shields.io/badge/GitHub-tanishaboarana-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Tanisha-b3)
 
 </div>
 
