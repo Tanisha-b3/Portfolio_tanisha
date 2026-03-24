@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import heroImg from '../assets/hero2.jpg';
+import AnimatedCounter from './AnimatedCounter';
 
 const roles = ['Full Stack', 'MERN Stack', 'Java', 'React'];
 
@@ -117,13 +118,23 @@ const Hero = () => {
 
             {/* Stats */}
             <div className="flex gap-8 mt-12 justify-center lg:justify-start">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">9+ </div>
+              <div className="text-center group">
+                <div className="text-3xl font-bold text-white group-hover:text-[#00d1d1] transition-colors">
+                  <AnimatedCounter end={9} suffix="+" />
+                </div>
                 <div className="text-gray-400 text-sm">Months Experience</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">10+</div>
+              <div className="text-center group">
+                <div className="text-3xl font-bold text-white group-hover:text-[#00d1d1] transition-colors">
+                  <AnimatedCounter end={10} suffix="+" />
+                </div>
                 <div className="text-gray-400 text-sm">Projects Done</div>
+              </div>
+              <div className="text-center group">
+                <div className="text-3xl font-bold text-white group-hover:text-[#00d1d1] transition-colors">
+                  <AnimatedCounter end={6} suffix="+" />
+                </div>
+                <div className="text-gray-400 text-sm">Technologies</div>
               </div>
             </div>
           </div>

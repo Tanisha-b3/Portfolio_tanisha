@@ -1,31 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+  const handleScroll = useCallback(() => {
+    const scrollY = window.scrollY;
+    setIsScrolled(scrollY > 50);
 
-      // Update active section based on scroll position
-      const sections = ['home', 'about', 'education', 'experience', 'portfolio', 'contact'];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            break;
-          }
+    // Calculate scroll progress
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    setScrollProgress((scrollY / totalHeight) * 100);
+
+    // Update active section based on scroll position
+    const sections = ['home', 'about', 'education', 'experience', 'portfolio', 'contact'];
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          setActiveSection(section);
+          break;
         }
       }
-    };
+    }
+  }, []);
 
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -37,13 +43,20 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'py-3 bg-[#0d1b2a]/95 backdrop-blur-lg shadow-lg shadow-black/20'
-          : 'py-5 bg-transparent'
-      }`}
-    >
+    <>
+      {/* Scroll Progress Bar */}
+      <div
+        className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-[#00d1d1] to-[#6bffff] z-[60] transition-all duration-100"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+          isScrolled
+            ? 'py-2 bg-[#0d1b2a]/90 backdrop-blur-xl shadow-lg shadow-[#00d1d1]/5 border-b border-[#00d1d1]/10'
+            : 'py-5 bg-transparent'
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -152,6 +165,7 @@ const Navbar = () => {
         )}
       </div>
     </nav>
+    </>
   );
 };
 

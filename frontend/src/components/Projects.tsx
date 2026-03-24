@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import travelImg from '../assets/travel.png';
 import eventImg from '../assets/time.png';
 import hospitalImg from '../assets/hospital.png';
@@ -108,10 +108,15 @@ const projects = [
 
 const categories = ['All', 'MERN', 'Cloud', 'Frontend', 'JAVA'];
 
+interface TiltState {
+  [key: number]: { x: number; y: number };
+}
+
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [isVisible, setIsVisible] = useState(false);
+  const [tiltState, setTiltState] = useState<TiltState>({});
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -129,6 +134,23 @@ const Projects = () => {
     }
 
     return () => observer.disconnect();
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>, id: number) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = (y - centerY) / 20;
+    const rotateY = (centerX - x) / 20;
+
+    setTiltState(prev => ({ ...prev, [id]: { x: rotateX, y: rotateY } }));
+  }, []);
+
+  const handleMouseLeave = useCallback((id: number) => {
+    setTiltState(prev => ({ ...prev, [id]: { x: 0, y: 0 } }));
   }, []);
 
   const filteredProjects = projects.filter((project) => {
@@ -220,20 +242,33 @@ const Projects = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => {
             const cardLink = project.link !== '#' ? project.link : project.github !== '#' ? project.github : null;
+            const tilt = tiltState[project.id] || { x: 0, y: 0 };
             return (
             <div
               key={project.id}
+              onMouseMove={(e) => handleMouseMove(e, project.id)}
+              onMouseLeave={() => handleMouseLeave(project.id)}
               onClick={(e) => {
-                // Only navigate if not clicking on the footer links
                 if (cardLink && !(e.target as HTMLElement).closest('a')) {
                   window.open(cardLink, '_blank', 'noopener,noreferrer');
                 }
               }}
-              className={`project-card group relative bg-[#1b263b] rounded-2xl overflow-hidden border border-[#00d1d1]/10 hover:border-[#00d1d1]/30 ${cardLink ? 'cursor-pointer' : ''} ${
+              className={`project-card group relative bg-[#1b263b] rounded-2xl overflow-hidden border border-[#00d1d1]/10 hover:border-[#00d1d1]/50 ${cardLink ? 'cursor-pointer' : ''} ${
                 isVisible ? 'animate-fade-in-up' : 'opacity-0'
               }`}
-              style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+              style={{
+                animationDelay: `${0.3 + index * 0.1}s`,
+                transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+                transition: 'transform 0.1s ease, box-shadow 0.3s ease, border-color 0.3s ease',
+              }}
             >
+              {/* Shine overlay */}
+              <div
+                className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  background: `radial-gradient(circle at ${50 + tilt.y * 3}% ${50 - tilt.x * 3}%, rgba(0, 209, 209, 0.15), transparent 60%)`,
+                }}
+              />
               {/* Image */}
               <div className="relative h-56 overflow-hidden">
                 <img
