@@ -1,76 +1,99 @@
-# Tanisha Borana - Portfolio
 
-A modern, responsive portfolio website showcasing my work as a Full Stack Developer.
+# Tanisha Borana – Portfolio
 
-## Tech Stack
+A modern, visually engaging, and fully responsive portfolio website to showcase my work as a Full Stack Developer.
 
-- **React 19** - UI library
-- **TypeScript** - Type safety
-- **Vite 8** - Build tool & dev server
-- **Tailwind CSS 4** - Styling
+---
 
-## Features
+## 🚀 Tech Stack
 
-- Responsive design for all screen sizes
-- Smooth animations and transitions
-- Dark theme with cyan accents
-- Sections: Hero, About, Education, Experience, Projects, Contact
+- **React 19** – UI library
+- **TypeScript** – Type safety
+- **Vite 8** – Lightning-fast build tool
+- **Tailwind CSS 4** – Utility-first styling
 
-## Getting Started
+---
+
+## ✨ Features
+
+- Beautiful, mobile-first responsive design
+- Animated hero section with dynamic typing effect
+- Smooth transitions and interactive UI elements
+- Dark theme with vibrant cyan accents
+- Dedicated sections: Hero, About, Education, Experience, Projects, Contact
+- Downloadable resume (CV)
+- Scroll progress and back-to-top features
+- Modular, maintainable code structure
+
+---
+
+## 🛠️ Getting Started
 
 ### Prerequisites
-
 - Node.js 18+
 - npm or yarn
 
 ### Installation
-
 ```bash
 cd frontend
 npm install
 ```
 
 ### Development
-
 ```bash
 npm run dev
 ```
+Visit: [http://localhost:5173](http://localhost:5173)
 
-Opens at `http://localhost:5173`
-
-### Build
-
+### Production Build
 ```bash
 npm run build
 ```
 
 ### Preview Production Build
-
 ```bash
 npm run preview
 ```
 
-## Project Structure
+---
+
+## 📁 Project Structure
 
 ```
 frontend/
+├── public/
 ├── src/
+│   ├── assets/
 │   ├── components/
-│   │   ├── Navbar.tsx
-│   │   ├── Hero.tsx
 │   │   ├── About.tsx
+│   │   ├── BackToTop.tsx
+│   │   ├── Contact.tsx
 │   │   ├── Education.tsx
 │   │   ├── Experience.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Hero.tsx
+│   │   ├── LoadingScreen.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── ParticleBackground.tsx
 │   │   ├── Projects.tsx
-│   │   ├── Contact.tsx
-│   │   └── Footer.tsx
-│   ├── assets/
+│   │   └── ScrollProgress.tsx
 │   ├── App.tsx
+│   ├── index.css
 │   └── main.tsx
-├── public/
-└── package.json
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-## Contact
+---
 
-Feel free to reach out for collaborations or opportunities.
+## 📬 Contact
+
+Feel free to connect for collaborations, freelance work, or opportunities!
+
+- **Email:** [your-email@example.com](mailto:your-email@example.com)
+- **LinkedIn:** [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
+
+---
+
+> © 2026 Tanisha Borana. All rights reserved.
